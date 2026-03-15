@@ -230,6 +230,11 @@ Alethia Live uses a **single Next.js web app** for the fastest realistic hackath
 - screenshot understanding uses standard generation on the server
 - the app is intentionally single-codebase for speed, clarity, and deployment simplicity
 
+### Architecture Diagram
+
+![Alethia Live Architecture](public/alethia-architecture.png)
+_Alethia Live uses a split multimodal architecture: Gemini Live handles real-time voice interaction, while a standard `@google/genai` route explains healthcare screenshots and documents in plain English. The full Next.js application is deployed on Google Cloud Run._
+
 For detailed notes, see:
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/product-spec.md`](docs/product-spec.md)
