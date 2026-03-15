@@ -344,3 +344,166 @@ This repository includes:
 - A deployment-ready Next.js app structure
 
 The sample healthcare screenshots in `public/samples/` are fictional demo assets created for product demonstration purposes.
+
+---
+
+## Reproducible Testing
+
+Alethia Live can be tested in two ways:
+
+1. **Deployed version on Google Cloud Run**
+2. **Local development setup**
+
+### Test the deployed app
+
+Open the live app:
+
+**https://alethia-live-695463819079.us-central1.run.app**
+
+#### Voice flow
+
+1. Open the app in Chrome.
+2. Allow microphone access when prompted.
+3. Click the Alethia portrait to start the live session.
+4. Wait for the UI to show that the session is ready.
+5. Click the portrait again to begin speaking.
+6. Say a test prompt such as:
+
+> “I’ve had a fever and sore throat for two days. I’m not sure if I should wait, book an appointment, or go somewhere urgent.”
+
+**Expected result:**
+- Alethia responds with live voice output
+- the UI reflects listening / speaking state changes
+- the response stays informational and non-diagnostic
+- emergency red flags may be surfaced when relevant
+
+#### Screenshot/document flow
+
+1. Use the **Use sample** button or upload a healthcare-related screenshot/image.
+2. Click **Explain screenshot**.
+
+**Expected result:**
+- structured result cards appear:
+  - Plain-English Summary
+  - High-Level Care Path
+  - What Matters Most
+  - Questions to Ask a Clinician
+  - Emergency Red Flags
+  - Safety Note
+
+### Test locally
+
+#### Prerequisites
+
+- Node.js 18+ recommended
+- npm
+- a Gemini API key with access to the required Gemini models
+
+#### Setup
+
+bash
+git clone <YOUR_REPO_URL>
+cd alethia-live
+npm install
+
+---
+
+Create a `.env.local` file in the project root and add:
+
+bash
+GEMINI_API_KEY=your_api_key_here
+
+Then run:
+
+npm run dev
+
+Open:
+
+http://localhost:3000
+
+--- 
+
+##Local test checklist
+
+### 1. Live token route
+
+Visit or trigger the app flow that calls:
+
+/api/live-token
+
+Expected result:
+
+route returns a valid ephemeral token response
+
+browser can establish a Gemini Live session
+
+### 2. Live voice session
+
+start a live session from the UI
+
+allow microphone access
+
+speak a short care-related question
+
+Expected result:
+
+connection succeeds
+
+microphone audio streams to Gemini Live
+
+model audio plays back in the browser
+
+turn lifecycle completes without crashing
+
+### 3. Screenshot/document understanding
+
+upload one of the included sample screenshots or another healthcare-related image
+
+click Explain screenshot
+
+Expected result:
+
+/api/summary returns structured output
+
+cards render correctly in the UI
+
+wording remains document-anchored and informational
+
+Recommended sample test prompts
+Voice prompt
+
+“I’ve had a fever and sore throat for two days. I’m not sure if I should wait, book an appointment, or go somewhere urgent.”
+
+Screenshot prompt
+
+Use one of the included fictional sample assets:
+
+after-visit-summary-better.png
+
+appointment-instructions-better.png
+
+discharge-instructions-better.png
+
+Expected behavior:
+
+Alethia explains the screenshot in plain English
+
+highlights what matters most
+
+suggests questions to ask a clinician
+
+surfaces urgent red flags when appropriate
+
+does not diagnose, recommend treatment, or give medication advice
+
+---
+
+## Notes for judges
+
+This is an informational healthcare navigation and health literacy tool.
+
+It is not a diagnostic system, treatment recommender, or medication advisor.
+
+For the best testing experience, use Chrome on desktop with microphone permissions enabled.
+
+If testing the deployed version, the Cloud Run service must have a valid runtime GEMINI_API_KEY configured.
