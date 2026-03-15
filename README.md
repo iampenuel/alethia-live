@@ -261,3 +261,36 @@ Alethia Live is deployed on **Google Cloud Run**.
 - source deployed to Cloud Run
 - service hosted in `us-central1`
 - runtime Gemini API key injected through Cloud Run environment variables
+
+---
+
+## Project Structure
+
+src/
+  app/
+    api/
+      live-token/
+      summary/
+    page.tsx
+  lib/
+    audio/
+    live/
+    safety/
+    server/
+
+public/
+  alethia-avatar.png
+  alethia-home.png
+  alethia-listening.png
+  alethia-speaking.png
+  alethia-upload.png
+  alethia-results-summary.png
+  alethia-results-redflags.png
+  samples/
+
+docs/
+  architecture.md
+  decision-log.md
+  demo-script.md
+  product-spec.md
+  submission-checklist.md
