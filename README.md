@@ -264,33 +264,78 @@ Alethia Live is deployed on **Google Cloud Run**.
 
 ---
 
-## Project Structure
+## Project highlights
 
-src/
-  app/
-    api/
-      live-token/
-      summary/
-    page.tsx
-  lib/
-    audio/
-    live/
-    safety/
-    server/
+- Real-time Gemini Live integration in a browser-based healthcare UX
+- Multimodal product flow: **voice + screenshot**
+- Strong safety boundaries for healthcare-adjacent AI
+- Clear product positioning instead of generic chatbot sprawl
+- Single-codebase deployment path optimized for hackathon speed
+- Cloud Run deployment on Google Cloud
+- Structured screenshot understanding outputs designed for actual usability
 
-public/
-  alethia-avatar.png
-  alethia-home.png
-  alethia-listening.png
-  alethia-speaking.png
-  alethia-upload.png
-  alethia-results-summary.png
-  alethia-results-redflags.png
-  samples/
+---
 
-docs/
-  architecture.md
-  decision-log.md
-  demo-script.md
-  product-spec.md
-  submission-checklist.md
+## Current limitations
+
+Alethia Live is intentionally scoped as a hackathon MVP.
+
+Current limitations include:
+
+- Screenshot-first document flow rather than a full PDF pipeline
+- No user accounts or persistent memory
+- Not designed for clinical decision-making
+- No diagnosis, treatment, or medication advice
+- Optimized for clarity and demo strength rather than broad healthcare coverage
+
+---
+
+## Future directions
+
+Potential next steps after the hackathon:
+
+- Higher-quality document ingestion beyond screenshots
+- Stronger multimodal document pipelines
+- Richer real-time transcript handling
+- Language accessibility improvements
+- Better clinic and care-setting explanation templates
+- More robust safety evaluation and testing
+
+---
+
+## Why this matters to me
+
+I’m an undergraduate AI student focused on becoming an AI engineer in healthcare and medical AI.
+
+Alethia Live reflects the kind of systems I want to build:
+
+- Useful
+- Human-centered
+- Safety-conscious
+- Scoped to real user needs
+- Technically real, not just conceptually interesting
+
+This project sits within my broader healthcare AI story alongside earlier work in seizure detection, neonatal brain MRI modeling, and medical learning product design.
+
+---
+
+## Disclaimer
+
+Alethia Live is a research and hackathon project.
+
+It is an informational healthcare navigation and health literacy companion, **not** a medical diagnostic tool, treatment system, medication advisor, or substitute for professional clinical care.
+
+If you may be experiencing a medical emergency, seek immediate emergency care or contact local emergency services.
+
+---
+
+## Repository notes
+
+This repository includes:
+
+- Working product code
+- Sample fictional healthcare screenshots for demo use
+- Product and architecture documentation
+- A deployment-ready Next.js app structure
+
+The sample healthcare screenshots in `public/samples/` are fictional demo assets created for product demonstration purposes.
